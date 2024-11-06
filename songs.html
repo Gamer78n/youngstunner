@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Young Stunners - Songs</title>
     <style>
+        /* Apply font globally */
         body {
             font-family: 'Helvetica', sans-serif;
-            padding-top: 120px; /* Adjusted padding to prevent overlap */
+            padding-top: 85px; /* Adjusted padding to prevent overlap */
             transition: background-color 0.5s, color 0.5s;
         }
+
+        /* Adjust padding for mobile */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px; /* Adjusted padding for mobile */
+            }
+        }
+
         /* Light Theme */
         body.light {
             background-color: #fafafa;
