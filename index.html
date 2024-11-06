@@ -33,9 +33,10 @@
             background-color: #1e1e1e;
             color: #fff;
             display: flex;
-            flex-wrap: wrap; /* Allow items to wrap */
-            justify-content: center; /* Center items on smaller screens */
-            padding: 1rem 2rem;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 1rem 0;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             transition: background-color 0.5s;
@@ -126,12 +127,12 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-bar {
-                flex-direction: column; /* Stack navigation items vertically */
-                align-items: center; /* Center items */
+                flex-direction: column;
+                padding: 1rem;
             }
             .header {
-                margin-top: 100px; /* Increase margin for more space */
-                padding: 1rem; /* Adjust padding for smaller screens */
+                margin-top: 100px;
+                padding: 1rem;
             }
         }
         @media (max-width: 480px) {
