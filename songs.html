@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Helvetica', sans-serif;
-            padding-top: 60px;
+            padding-top: 120px; /* Adjusted padding to prevent overlap */
             transition: background-color 0.5s, color 0.5s;
         }
         /* Light Theme */
@@ -20,6 +20,7 @@
             background-color: #121212;
             color: #e0e0e0;
         }
+
         .nav-bar {
             position: fixed;
             top: 0;
@@ -28,11 +29,14 @@
             background-color: #1e1e1e;
             color: #fff;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             padding: 1rem;
-            padding-left: 50px;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
         }
         .nav-bar a {
             color: #fff;
@@ -46,12 +50,26 @@
         .nav-bar a.active {
             border-bottom: 2px solid #ff5733;
         }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .nav-bar {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+            }
+        }
+
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             padding: 2rem;
-            margin-top: 70px; /* Add margin to prevent overlap with nav-bar */
         }
         .song-card {
             background-color: #2c2c2c;
@@ -59,7 +77,6 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
-            text-align: center;
         }
         .song-card:hover {
             transform: scale(1.05);
@@ -70,11 +87,13 @@
             border-radius: 8px 8px 0 0;
         }
         .song-card h3 {
+            text-align: center;
             padding: 1rem;
             background: rgba(0, 0, 0, 0.7);
             color: #fff;
             border-radius: 0 0 8px 8px;
         }
+
         /* Settings Container */
         .settings-container {
             position: fixed;
@@ -108,12 +127,14 @@
         }
     </style>
 </head>
-<body class="light">
+<body>
     <nav class="nav-bar">
-        <a href="index.html">Home</a>
-        <a href="songs.html" class="active">Songs</a>
-        <a href="#">About Me</a>
-        <a href="#" onclick="openSettings()">Settings</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="songs.html" class="active">Songs</a>
+            <a href="#">About Me</a>
+            <a href="#" onclick="openSettings()">Settings</a>
+        </div>
     </nav>
 
     <div class="container">
@@ -130,7 +151,7 @@
             <h3>Afsanay</h3>
         </div>
         <div class="song-card" onclick="window.location.href='Upcoming.html'">
-            <img src="./images/don't mind.jpg" alt="Cover art for Upcoming">
+            <img src="./images/don`t mind.jpg" alt="Cover art for Upcoming">
             <h3>Upcoming</h3>
         </div>
         <div class="song-card" onclick="window.location.href='Upcoming.html'">
@@ -160,9 +181,6 @@
             document.body.classList.add(currentTheme);
             document.getElementById('settingsContainer').classList.add(currentTheme);
             document.getElementById('themeSelect').value = currentTheme;
-
-            // Apply smooth transitions
-            document.body.style.transition = 'background-color 0.5s, color 0.5s';
 
             document.getElementById('themeSelect').addEventListener('change', (event) => {
                 const selectedTheme = event.target.value;
